@@ -5,7 +5,7 @@ import SearchPage from './components/search/SearchPage';
 import NavBar from './components/common/NavBar';
 import NotFoundPage from './components/NotFoundPage';
 
-import './App.css';
+
 
 
 function App() {

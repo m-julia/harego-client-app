@@ -1,14 +1,19 @@
+import { Container, createStyles, makeStyles, Theme } from "@material-ui/core";
 import React from "react";
-import { Link } from "react-router-dom";
+import CityForm from "../common/CityForm";
+import CustomButton from "../common/CustomButton";
+import DatePicker from "../common/DatePicker";
+import SearchBar from "../common/SearchBar";
+import WeightForm from "../common/WeightForm";
+
+
 
 const SearchPage = () => {
+    
     return (
-        <div>
-            <h1>Search page</h1>
-            <Link to="/">
-                Home
-        </Link>
-        </div>
+        <Container >
+            <SearchBar />
+        </Container>
     )
     
 
