@@ -19,10 +19,12 @@ const NavBar = () => {
                             HAREGO
                         </NavLink>
                     </Typography>
-                
+                    <NavLink to="/search" className={classes.link}>
                     <Button color="inherit" className={classes.menuButton}>
                         Advertisement
                     </Button>
+                    </NavLink>
+                    
                     <Button color="inherit" className={classes.menuButton}>
                         Login
                     </Button>
