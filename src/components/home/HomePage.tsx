@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme: Theme) =>
     margin: 0,
   },
   container: {
-    paddingTop: '15%'
+    paddingTop: '15%',
+    justifyContent: 'center'
   },
   title: {
     flexGrow: 1,

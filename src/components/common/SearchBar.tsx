@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
   
   container: {
-    marginTop : "3%",
+    marginTop : 50,
     display: 'flex'
   }
   
