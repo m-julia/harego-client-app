@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme: Theme) =>
     margin: 0,
   },
   container: {
-    paddingTop: '15%'
+    paddingTop: '15%',
+    justifyContent: 'center'
   },
   title: {
     flexGrow: 1,
@@ -30,8 +31,10 @@ const HomePage = () => {
                 <Typography variant="h3" className={classes.title}>
                     HAREGO is....
                 </Typography>
-           <CustomButton title="Deliver"/>
-           <NavLink to="/search">
+            <NavLink to="/registration">
+              <CustomButton title="Deliver"/>
+            </NavLink>
+            <NavLink to="/search">
                 <CustomButton title="Send"/>
            </NavLink>
                 </Container>

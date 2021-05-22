@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import useStyles from "./NavBarStyles"
+import styles from "./NavBarStyles"
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 
 
 const NavBar = () => {
-    const classes = useStyles();
+    const classes = styles();
 
     return (
         <div className={classes.root}>
