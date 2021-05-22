@@ -31,8 +31,10 @@ const HomePage = () => {
                 <Typography variant="h3" className={classes.title}>
                     HAREGO is....
                 </Typography>
-           <CustomButton title="Deliver"/>
-           <NavLink to="/search">
+            <NavLink to="/registration">
+              <CustomButton title="Deliver"/>
+            </NavLink>
+            <NavLink to="/search">
                 <CustomButton title="Send"/>
            </NavLink>
                 </Container>
