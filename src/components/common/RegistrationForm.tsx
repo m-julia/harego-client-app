@@ -28,7 +28,7 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
+  root: {
     marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
@@ -59,7 +59,7 @@ export default function RegistrationForm() {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={classes.paper}>
+      <div className={classes.root}>
         <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
         </Avatar>
@@ -109,6 +109,7 @@ export default function RegistrationForm() {
                 fullWidth
                 id="phone-number"
                 label="Phone number"
+                type="tel"
                 name="phoneNumber"
                 autoComplete="phoneNumber"
               />

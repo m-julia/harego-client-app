@@ -12,7 +12,7 @@ import LoginForm from './components/common/LoginForm';
 
 function App() {
   return (
-      <div className="App">
+    <div className="App">
           <NavBar />
           <Switch>
               <Route exact path="/" component={HomePage} />

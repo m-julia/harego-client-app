@@ -1,4 +1,4 @@
-import { Container, createStyles, makeStyles, Theme, Typography} from "@material-ui/core";
+import { Container, createStyles, Grid, makeStyles, Theme, Typography} from "@material-ui/core";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
@@ -11,10 +11,14 @@ const useStyles = makeStyles((theme: Theme) =>
     maxWidth: '100%',
     height: '100vh',
     margin: 0,
+    paddingTop: 220
   },
   container: {
-    paddingTop: '15%',
-    justifyContent: 'center'
+    paddingBottom: 60,
+    margin: "auto",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   },
   title: {
     flexGrow: 1,
@@ -27,17 +31,26 @@ const HomePage = () => {
     const classes = useStyles();
     return (
         <Container className={classes.root}>
-            <Container className={classes.container}> 
-                <Typography variant="h3" className={classes.title}>
-                    HAREGO is....
-                </Typography>
-            <NavLink to="/registration">
-              <CustomButton title="Deliver"/>
-            </NavLink>
-            <NavLink to="/search">
-                <CustomButton title="Send"/>
-           </NavLink>
-                </Container>
+          <Typography variant="h3" className={classes.title}>
+            HAREGO is....
+          </Typography>
+          <Container className={classes.container} >
+          <Grid container  
+                direction="row"
+                justify="center"
+                alignItems="center" spacing={1}>
+            <Grid item xs={12} sm={6} md={3} lg={3}>
+              <NavLink to="/registration">
+                <CustomButton title="Deliver"/>
+              </NavLink>
+            </Grid>
+            <Grid item xs={12} sm={6} md={3} lg={3}>
+              <NavLink to="/search">
+                  <CustomButton title="Send"/>
+              </NavLink>
+            </Grid>
+          </Grid>
+          </Container>
         </Container>
     )
 }
