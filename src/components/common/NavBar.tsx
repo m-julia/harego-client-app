@@ -29,6 +29,11 @@ const NavBar = () => {
                             Login
                         </Button>
                     </NavLink>
+                    <NavLink to="/profile" className={classes.link} >
+                        <Button color="inherit" className={classes.menuButton}>
+                            My Profile
+                        </Button>
+                    </NavLink>
                 </Toolbar>
             </AppBar>
         </div>

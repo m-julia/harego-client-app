@@ -26,7 +26,7 @@ const SearchBar = () => {
                 <CityForm label="From" />
             </Grid>
             <Grid item xs={12} sm={6} lg={2}>
-                <CityForm label="From" />
+                <CityForm label="To" />
             </Grid>
             <Grid item xs={12} sm={8} lg={2}>
               <WeightForm />
