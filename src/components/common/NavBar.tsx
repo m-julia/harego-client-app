@@ -20,15 +20,20 @@ const NavBar = () => {
                         </NavLink>
                     </Typography>
                     <NavLink to="/search" className={classes.link}>
-                    <Button color="inherit" className={classes.menuButton}>
-                        Advertisement
-                    </Button>
+                        <Button color="inherit" className={classes.menuButton}>
+                            Advertisement
+                        </Button>
                     </NavLink>
-                    
-                    <Button color="inherit" className={classes.menuButton}>
-                        Login
-                    </Button>
-
+                    <NavLink to="/login" className={classes.link} >
+                        <Button color="inherit" className={classes.menuButton}>
+                            Login
+                        </Button>
+                    </NavLink>
+                    <NavLink to="/profile" className={classes.link} >
+                        <Button color="inherit" className={classes.menuButton}>
+                            My Profile
+                        </Button>
+                    </NavLink>
                 </Toolbar>
             </AppBar>
         </div>

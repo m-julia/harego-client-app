@@ -14,11 +14,12 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      maxWidth: "70%",
-      paddingTop: 80
+      maxWidth: "65%",
+      margin: theme.spacing(8, "auto", 2),
+      
     },
     avatar: {
-      backgroundColor: '#37474f',
+      backgroundColor: "#ffcc23",
     },
     pos: {
       marginBottom: 12,
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function RecipeReviewCard() {
+export default function AdvCard() {
   const classes = useStyles();
   
   return (
@@ -43,7 +44,7 @@ export default function RecipeReviewCard() {
           </IconButton>
         }
         title="Romanov Roman"
-        subheader="September 14, 2016"
+        subheader="September 14, 2020"
       />
      
       <CardContent>
