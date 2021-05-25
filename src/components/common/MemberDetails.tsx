@@ -5,6 +5,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
+import { Grid, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -14,10 +15,13 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     avatar: {
       backgroundColor: "#ffcc23",
+      width: theme.spacing(12),
+      height: theme.spacing(12),
     },
     pos: {
       marginBottom: 12,
-    },
+    }
+    
   }),
 );
 
@@ -28,21 +32,33 @@ export default function MemberDetails() {
     <Card className={classes.root}>
       <CardHeader
         avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
+          <Avatar alt="Remy Sharp"  className={classes.avatar} >
             R
           </Avatar>
         }
-       
-        title="Romanov Roman"
-       
+        title={
+          <Typography variant="h4">
+            Romanov Roman
+          </Typography>
+        }
       />
      
         <CardContent>
-      
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={12}>
+              <Typography variant="h5">
+                Romanov Roman
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={12}>
+              <Typography variant="h5">
+                Romanov Roman
+              </Typography>
+            </Grid>
+          </Grid>
+            
         </CardContent>
-        <CardActions disableSpacing>
-        
-        </CardActions >
+       
        
     </Card>
   );
