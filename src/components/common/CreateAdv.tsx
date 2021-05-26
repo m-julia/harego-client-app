@@ -1,22 +1,39 @@
-import { Card, createStyles, Grid, makeStyles, TextField, Theme, Typography } from "@material-ui/core";
+import { Card, createMuiTheme, createStyles, Grid, makeStyles, TextField, Theme, ThemeProvider, Typography } from "@material-ui/core";
 import React from "react";
 import CityForm from "./CityForm";
 import CustomButton from "./CustomButton";
 import DatePicker from "./DatePicker";
 import WeightForm from "./WeightForm";
+import CreateIcon from '@material-ui/icons/Create';
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: 'a6a6a6',
+      main: '#ffcc23',
+      dark: '#37474f',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: 'a6a6a6',
+      main: '#ffcc23',
+      dark: '#37474f',
+      contrastText: '#000',
+    },
+  },
+});
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      margin: theme.spacing(8, "auto", 2),
+      
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       textAlign: "center"
   },
   form: {
-    width: "100%", 
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(2),
+    
   },
   textField: {
       margin: theme.spacing(2)
@@ -40,9 +57,10 @@ const CreateAdv = () => {
 
 
     return (
-      <Card className={classes.root}>
+      <ThemeProvider theme={theme}>
+      <div className={classes.root}>
         <form className={classes.form} >
-         <Grid container spacing={2}>
+         <Grid container >
             <Grid item xs={12} >
                 <Typography component="h1" variant="h5">
                     Create advertisement
@@ -89,11 +107,12 @@ const CreateAdv = () => {
             </Grid>
             
             <Grid item xs={12} >
-              <CustomButton title="Create"/>
+              <CustomButton title={"Create"} icon={<CreateIcon />}/>
             </Grid>
           </Grid>
           </form>
-      </Card>
+        </div>
+        </ThemeProvider>
        
     )
     

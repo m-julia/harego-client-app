@@ -1,7 +1,7 @@
 import { Container, createStyles, Grid, makeStyles, Theme } from "@material-ui/core";
 import React from "react";
 import CreateAdv from "../common/CreateAdv";
-import MemberDetails from "../common/MemberDetails";
+import MemberDetails from "../member/MemberDetails";
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -15,21 +15,20 @@ const useStyles = makeStyles((theme: Theme) =>
  
 }));
 
-const SearchPage = () => {
+const ProfilePage = () => {
     const classes = useStyles();
     
     return (
         <Container className={classes.root} >
             <Grid container spacing={2}>
-                <Grid item xs={12} sm={12} md={6} lg={9}>
+                <Grid item xs={12} sm={12} md={6} lg={12}>
                     <MemberDetails />
                 </Grid>
-                <Grid item xs={12} sm={12} md={6} lg={3} >
-                    <CreateAdv />
-                </Grid>
+               
+                
             </Grid>
         </Container>
     ) 
 }
 
-export default SearchPage;
+export default ProfilePage;
