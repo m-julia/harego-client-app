@@ -4,6 +4,7 @@ import { createStyles, makeStyles, Theme  } from '@material-ui/core/styles';
 
 interface Props {
   title: string,
+  icon?: object | null,
 }
 
 // We can inject some CSS into the DOM.
@@ -26,9 +27,10 @@ const useStyles = makeStyles((theme: Theme) =>
 function CustomButton(prop: Props) {
   const classes = useStyles();
   const value = prop.title;
+  const icon = prop.icon;
   return (
     <Button className={classes.root}>
-      {value}
+     {icon} {value}
     </Button>
   );
 }

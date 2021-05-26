@@ -1,6 +1,8 @@
 import { Container, createStyles, Grid, makeStyles, Theme, Typography} from "@material-ui/core";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import SendIcon from '@material-ui/icons/Send';
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 
 import CustomButton from "../common/CustomButton";
 
@@ -41,12 +43,12 @@ const HomePage = () => {
                 alignItems="center" spacing={1}>
             <Grid item xs={12} sm={6} md={3} lg={3}>
               <NavLink to="/registration">
-                <CustomButton title="Deliver"/>
+                <CustomButton title="Deliver" icon={<FlightTakeoffIcon />}/>
               </NavLink>
             </Grid>
             <Grid item xs={12} sm={6} md={3} lg={3}>
               <NavLink to="/search">
-                  <CustomButton title="Send"/>
+                  <CustomButton title="Send" icon={<SendIcon />}/>
               </NavLink>
             </Grid>
           </Grid>
