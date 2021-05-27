@@ -1,9 +1,8 @@
-import { Card, createMuiTheme, createStyles, Grid, makeStyles, TextField, Theme, ThemeProvider, Typography } from "@material-ui/core";
+import { createMuiTheme, createStyles, Grid, makeStyles, TextField, Theme, ThemeProvider, Typography } from "@material-ui/core";
 import React from "react";
-import CityForm from "./CityForm";
-import CustomButton from "./CustomButton";
-import DatePicker from "./DatePicker";
-import WeightForm from "./WeightForm";
+import CustomButton from "../common/CustomButton";
+import DatePicker from "../common/DatePicker";
+import WeightForm from "../common/WeightForm";
 import CreateIcon from '@material-ui/icons/Create';
 
 const theme = createMuiTheme({
