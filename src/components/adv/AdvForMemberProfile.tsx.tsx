@@ -51,18 +51,18 @@ export default function AdvForMember() {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography variant="subtitle2"  className={classes.heading}>
+          <Typography component={'span'} variant="subtitle2"  className={classes.heading}>
           PRAGUE - MOSCOW
         </Typography>
-        <Typography className={classes.secondaryHeading} color="textSecondary">
+        <Typography component={'span'} className={classes.secondaryHeading} color="textSecondary">
           30/05/2021
         </Typography>
         </AccordionSummary>
         <AccordionDetails className={classes.details}>
-          <Typography className={classes.secondaryHeading} color="textSecondary">
+          <Typography component={'span'} className={classes.secondaryHeading} color="textSecondary">
           2.0 kg
           </Typography>
-          <Typography className={classes.text}>
+          <Typography component={'span'} className={classes.text}>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
           </Typography>
         </AccordionDetails>

@@ -58,8 +58,7 @@ const CreateAdv = () => {
     return (
       <ThemeProvider theme={theme}>
       <div className={classes.root}>
-        <form className={classes.form} >
-         <Grid container >
+        <Grid container >
             <Grid item xs={12} >
                 <Typography component="h1" variant="h5">
                     Create advertisement
@@ -98,7 +97,7 @@ const CreateAdv = () => {
                 id="standard-textarea"
                 label="Description"
                 multiline
-                rowsMax={10}
+                rowsMax={4}
                 className={classes.text}
                 value={value}
                 onChange={handleChange}
@@ -109,7 +108,7 @@ const CreateAdv = () => {
               <CustomButton title={"Create"} icon={<CreateIcon />}/>
             </Grid>
           </Grid>
-          </form>
+          
         </div>
         </ThemeProvider>
        

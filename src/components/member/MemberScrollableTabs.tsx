@@ -89,18 +89,8 @@ export default function MemberScrollableTabs() {
         
         </Tabs>
         </Paper>
-      <TabPanel value={value} index={0}>
-        <MemberAbout />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <MemberAdv />
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        Item Four
-      </TabPanel>
+        {value === 0 && <MemberAbout />}
+        {value === 1 && <MemberAdv />}
      
     </div>
     </ThemeProvider>

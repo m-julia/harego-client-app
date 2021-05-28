@@ -44,14 +44,11 @@ export default function MemberDetails() {
             />
           </Grid>
                  
-            <Grid item lg={6} >
+            <Grid item lg={8} >
              <MemberInformation />
             </Grid>
 
-            <Grid item lg={3} >
-             <CreateAdv />
-            </Grid>
-
+           
           </Grid>
       </CardContent>
        
