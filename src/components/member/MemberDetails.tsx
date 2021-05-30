@@ -5,7 +5,6 @@ import CardContent from '@material-ui/core/CardContent';
 import { CardMedia, Grid } from '@material-ui/core';
 import ReactComponent  from '../../img/blank-profile-picture-973460_1280.png'
 import MemberInformation from './MemberInformation';
-import CreateAdv from '../adv/CreateAdv';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

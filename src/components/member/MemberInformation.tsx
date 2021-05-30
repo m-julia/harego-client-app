@@ -1,6 +1,5 @@
 import { makeStyles, Theme, createStyles, Grid, Typography, Container } from '@material-ui/core';
 import React from 'react'
-import Rating from '../common/Rating';
 import MemberButtonsReactionBar from './MemberButtonsReactionBar';
 import MemberLanguages from './MemberLanguages';
 import MemberLocation from './MemberLocation';

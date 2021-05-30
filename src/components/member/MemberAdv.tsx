@@ -1,6 +1,5 @@
-import { makeStyles, Modal, Paper, Theme } from '@material-ui/core';
+import { makeStyles, Modal, Theme } from '@material-ui/core';
 import React, { useState } from 'react';
-import myTheme from '../../customTheme/myTheme';
 import AdvForMember from '../adv/AdvForMemberProfile.tsx';
 import CircleButton from '../buttons/CircleButton';
 import AddIcon from '@material-ui/icons/Add';
