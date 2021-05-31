@@ -1,20 +1,10 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Avatar from '@material-ui/core/Avatar';
-import { CardMedia, Grid, Typography } from '@material-ui/core';
+import { CardMedia, Grid } from '@material-ui/core';
 import ReactComponent  from '../../img/blank-profile-picture-973460_1280.png'
-import SvgIcon from '@material-ui/core/SvgIcon';
-import PlaceIcon from '@material-ui/icons/Place';
-import MemberLocation from './MemberLocation';
-import MemberLanguages from './MemberLanguages';
-import MemberButtonsReactionBar from './MemberButtonsReactionBar';
-import MemberAbout from './MemberAbout';
 import MemberInformation from './MemberInformation';
-import CreateAdv from '../common/CreateAdv';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -53,14 +43,11 @@ export default function MemberDetails() {
             />
           </Grid>
                  
-            <Grid item lg={6} >
+            <Grid item lg={8} >
              <MemberInformation />
             </Grid>
 
-            <Grid item lg={3} >
-             <CreateAdv />
-            </Grid>
-
+           
           </Grid>
       </CardContent>
        

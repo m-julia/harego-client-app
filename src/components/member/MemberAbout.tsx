@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStyles, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
-import PersonIcon from '@material-ui/icons/Person';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -41,15 +41,6 @@ export default function MemberAbout() {
     const classes = useStyles();
     return (
         <div>
-            <div className={classes.root}>
-            <PersonIcon /> 
-            <Typography variant="h6" className={classes.about}>
-                About
-            </Typography>
-            </div>
-            <div className={classes.root}>
-                <div className={classes.hr}/>
-            </div>
             <div>
             <Typography variant="subtitle1" gutterBottom className={classes.textHeader}>
                 CONTACT INFORMATION

@@ -1,23 +1,26 @@
-import { makeStyles, Theme, createStyles, Grid, Typography } from '@material-ui/core';
+import { makeStyles, Theme, createStyles, Grid, Typography, Container } from '@material-ui/core';
 import React from 'react'
-import MemberAbout from './MemberAbout';
 import MemberButtonsReactionBar from './MemberButtonsReactionBar';
 import MemberLanguages from './MemberLanguages';
 import MemberLocation from './MemberLocation';
+import MemberScrollableTabs from './MemberScrollableTabs';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       margin: theme.spacing(5, "auto", 2),
     },
+    margin: {
+      marginLeft: theme.spacing(5),
+    }
   }),
 );
 
 export default function MemberInformation() {
     const classes = useStyles();
     return (
-        <div className={classes.root}>
-            <Grid container>
+        <Container className={classes.root}>
+            <Grid container className={classes.margin}>
                 <Grid item >
                     <Typography variant="h5">
                         Romanov Roman
@@ -28,15 +31,16 @@ export default function MemberInformation() {
                     </Grid>
             </Grid>
             
-            <Grid item xs={12} sm={12}>
+            <Grid item xs={12} sm={12} className={classes.margin}>
               <MemberLanguages />
             </Grid>
-            <Grid item xs={12} sm={12}>
+           
+            <Grid item xs={12} sm={12} className={classes.margin}>
               <MemberButtonsReactionBar />
             </Grid>
             <Grid item xs={12} sm={12}>
-              <MemberAbout />
+              <MemberScrollableTabs />
             </Grid>
-        </div>
+        </Container>
     )
 }

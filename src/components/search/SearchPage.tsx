@@ -1,6 +1,6 @@
 import { Container, createStyles, makeStyles, Theme } from "@material-ui/core";
 import React from "react";
-import AdvCard from "../common/AdvCard";
+import AdvCard from "../adv/AdvCard";
 import SearchBar from "../common/SearchBar";
 
 const useStyles = makeStyles((theme: Theme) =>

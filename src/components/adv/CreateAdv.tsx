@@ -1,9 +1,8 @@
-import { Card, createMuiTheme, createStyles, Grid, makeStyles, TextField, Theme, ThemeProvider, Typography } from "@material-ui/core";
+import { createMuiTheme, createStyles, Grid, makeStyles, TextField, Theme, ThemeProvider, Typography } from "@material-ui/core";
 import React from "react";
-import CityForm from "./CityForm";
-import CustomButton from "./CustomButton";
-import DatePicker from "./DatePicker";
-import WeightForm from "./WeightForm";
+import CustomButton from "../common/CustomButton";
+import DatePicker from "../common/DatePicker";
+import WeightForm from "../common/WeightForm";
 import CreateIcon from '@material-ui/icons/Create';
 
 const theme = createMuiTheme({
@@ -59,8 +58,7 @@ const CreateAdv = () => {
     return (
       <ThemeProvider theme={theme}>
       <div className={classes.root}>
-        <form className={classes.form} >
-         <Grid container >
+        <Grid container >
             <Grid item xs={12} >
                 <Typography component="h1" variant="h5">
                     Create advertisement
@@ -99,7 +97,7 @@ const CreateAdv = () => {
                 id="standard-textarea"
                 label="Description"
                 multiline
-                rowsMax={10}
+                rowsMax={4}
                 className={classes.text}
                 value={value}
                 onChange={handleChange}
@@ -110,7 +108,7 @@ const CreateAdv = () => {
               <CustomButton title={"Create"} icon={<CreateIcon />}/>
             </Grid>
           </Grid>
-          </form>
+          
         </div>
         </ThemeProvider>
        
