@@ -12,4 +12,6 @@ export interface Advertisement {
     createdAt: string;
     isCompleted: boolean;
     id: string;
-  }
+}
+
+

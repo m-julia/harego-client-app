@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -11,12 +11,13 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
+
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       maxWidth: "65%",
       margin: theme.spacing(8, "auto", 2),
-      
     },
     avatar: {
       backgroundColor: "#ffcc23",
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function AdvCard() {
   const classes = useStyles();
-  
+
   return (
     <Card className={classes.root}>
       <CardHeader
