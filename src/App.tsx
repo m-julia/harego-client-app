@@ -13,14 +13,14 @@ import { Advertisement } from './api/models/advertisement';
 
 
 function App() {
-  const [ads, setAds] = useState<Advertisement[]>([]);
+  /*const [ads, setAds] = useState<Advertisement[]>([]);
   useEffect(() => {
     agent.Advertisements.list().then(response => {
       console.log(response);
       setAds(response);
     })
    
-  }, [])
+  }, [])*/
 
   return (
     <div className="App">

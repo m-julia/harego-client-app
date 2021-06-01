@@ -10,6 +10,9 @@ import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { connect } from 'react-redux';
+import { getAllAdvertisements } from '../../redux/actions/advAction';
+import agent from '../../api/agent';
 
 
 
@@ -28,8 +31,17 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function AdvCard() {
+ function AdvCard(props: any) {
   const classes = useStyles();
+  
+  let list;
+  useEffect(() => {
+    agent.Advertisements.list()
+    .then((advList) => {
+       list = advList
+    })
+    .catch((err) => console.log(err))
+  }, [])
 
   return (
     <Card className={classes.root}>
@@ -70,7 +82,20 @@ export default function AdvCard() {
           <ShareIcon />
         </IconButton>
         </CardActions >
-       
     </Card>
   );
 }
+
+const mapStateToProps = (state : any) => {
+  return {
+    listAdv: state.advertisements
+  }
+}
+
+const mapDispatchToProps = (dispatch : any, props : any) => {
+  return {
+    sendList : () => dispatch(getAllAdvertisements(props.listAdv))
+  }
+}
+
+export default connect(mapStateToProps)(AdvCard);
