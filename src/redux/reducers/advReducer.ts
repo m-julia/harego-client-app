@@ -1,20 +1,17 @@
-import { type } from "os";
-import { Advertisement } from "../../api/models/advertisement";
-import { GET_ALL_ADVERTISEMENTS } from "../actions/actionTypes";
-import { AdvertisementAction } from "../actions/advAction";
+import { SET_ALL_ADVERTISEMENTS } from "../actions/actionTypes";
 
-type AdvertisementState = {
-    advertisements: Advertisement[]
+const initialState = {
+    advertisements: [],
+    loading: true,
 }
 
-const initialState = {};
-
-const advReducer = (state = initialState, action: any) => {
+const advReducer = (state: any = initialState, action: any) => {
     switch (action.type) {
-        case GET_ALL_ADVERTISEMENTS:
-            return {...state, advertisements: action.advertisements}
+        case SET_ALL_ADVERTISEMENTS:
+            return {...state, advertisements: action.advertisements, loading: false}
         default: 
             return {...state};
     }
 }
+
 export default advReducer;

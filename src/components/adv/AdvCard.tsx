@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -10,11 +9,6 @@ import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import { connect } from 'react-redux';
-import { getAllAdvertisements } from '../../redux/actions/advAction';
-import agent from '../../api/agent';
-
-
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -33,17 +27,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
  function AdvCard(props: any) {
   const classes = useStyles();
-  
-  let list;
-  useEffect(() => {
-    agent.Advertisements.list()
-    .then((advList) => {
-       list = advList
-    })
-    .catch((err) => console.log(err))
-  }, [])
-
-  return (
+    
+  return (  
     <Card className={classes.root}>
       <CardHeader
         avatar={
@@ -59,11 +44,11 @@ const useStyles = makeStyles((theme: Theme) =>
         title="Romanov Roman"
         subheader="September 14, 2020"
       />
-     
+    
       <CardContent>
       <Typography variant="h5" component="h2">
-          Praha - Moscow
-        </Typography>
+          {props.from} - {props.to} 
+      </Typography>
         <Typography className={classes.pos} color="textSecondary">
           30/05/2021
         </Typography>
@@ -86,16 +71,5 @@ const useStyles = makeStyles((theme: Theme) =>
   );
 }
 
-const mapStateToProps = (state : any) => {
-  return {
-    listAdv: state.advertisements
-  }
-}
 
-const mapDispatchToProps = (dispatch : any, props : any) => {
-  return {
-    sendList : () => dispatch(getAllAdvertisements(props.listAdv))
-  }
-}
-
-export default connect(mapStateToProps)(AdvCard);
+export default AdvCard;
