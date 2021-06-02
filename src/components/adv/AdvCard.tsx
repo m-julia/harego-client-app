@@ -1,4 +1,3 @@
-import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -16,7 +15,6 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       maxWidth: "65%",
       margin: theme.spacing(8, "auto", 2),
-      
     },
     avatar: {
       backgroundColor: "#ffcc23",
@@ -27,10 +25,10 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function AdvCard() {
+ function AdvCard(props: any) {
   const classes = useStyles();
-  
-  return (
+    
+  return (  
     <Card className={classes.root}>
       <CardHeader
         avatar={
@@ -46,11 +44,11 @@ export default function AdvCard() {
         title="Romanov Roman"
         subheader="September 14, 2020"
       />
-     
+    
       <CardContent>
       <Typography variant="h5" component="h2">
-          Praha - Moscow
-        </Typography>
+          {props.from} - {props.to} 
+      </Typography>
         <Typography className={classes.pos} color="textSecondary">
           30/05/2021
         </Typography>
@@ -69,7 +67,9 @@ export default function AdvCard() {
           <ShareIcon />
         </IconButton>
         </CardActions >
-       
     </Card>
   );
 }
+
+
+export default AdvCard;
