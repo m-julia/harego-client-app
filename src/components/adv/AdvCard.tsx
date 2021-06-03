@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
  function AdvCard(props: any) {
   const classes = useStyles();
-    
+   
   return (  
     <Card className={classes.root}>
       <CardHeader
@@ -47,16 +47,16 @@ const useStyles = makeStyles((theme: Theme) =>
     
       <CardContent>
       <Typography variant="h5" component="h2">
-          {props.from} - {props.to} 
+          {props.props.fromLocation} - {props.props.toLocation}
       </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          30/05/2021
+          {props.props.tripDate}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          2.0 kg
+          {props.props.weight} Kg
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+          {props.props.description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -71,5 +71,6 @@ const useStyles = makeStyles((theme: Theme) =>
   );
 }
 
-
 export default AdvCard;
+
+
