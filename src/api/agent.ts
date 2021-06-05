@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { Advertisement } from './models/advertisement';
+import { Member } from './models/member';
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
 
@@ -16,9 +17,14 @@ const Advertisements = {
     list: () => requests.get<Advertisement[]>('/advertisement'),
 }
 
+const Members = {
+    list: () => requests.get<Member[]>('/member'),
+}
+
 
 const agent = {
-    Advertisements
+    Advertisements,
+    Members
 }
 
 export default agent;

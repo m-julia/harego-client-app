@@ -35,7 +35,7 @@ const SearchPage = (props: any) => {
             <SearchBar />
             {props.listAdv.map((adv: Advertisement) => (
               <React.Fragment key={adv.id}>
-                  <AdvCard to={adv.toLocation} from={adv.fromLocation}/>
+                  <AdvCard props={adv} />
               </React.Fragment>          
             ))}   
         </Container>
