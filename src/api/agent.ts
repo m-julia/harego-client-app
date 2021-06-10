@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { Advertisement } from './models/advertisement';
-import { Member } from './models/member';
+import { Member, MemberFormValue } from './models/member';
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
 
@@ -15,16 +15,26 @@ const requests = {
 
 const Advertisements = {
     list: () => requests.get<Advertisement[]>('/advertisement'),
+    create: (advertisement: Advertisement) => axios.post<void>('/advertisement', advertisement),
+    update: (advertisement: Advertisement) => axios.post<void>(`/advertisement/${advertisement.id}`, advertisement),
+    delete: (id: string) => axios.delete<void>((`/advertisement/${id}`))
 }
 
 const Members = {
     list: () => requests.get<Member[]>('/member'),
 }
 
+const Account = {
+    current: () => requests.get<Member>('/account'),
+    login: (member: MemberFormValue) => requests.post<Member>('/account/login', member),
+    register: (member: MemberFormValue) => requests.post<Member>('/account/register', member)
+}
+
 
 const agent = {
     Advertisements,
-    Members
+    Members,
+    Account
 }
 
 export default agent;

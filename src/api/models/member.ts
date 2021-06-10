@@ -6,9 +6,11 @@ export interface Member {
     birthday: string;
     phoneNumber: string;
     email: string;
-    createdAt: string;
-    deletedAt: any;
-    lastVisitDate: string;
+    token: string;
+    image?: string;
+    createdAt?: string;
+    deletedAt?: any;
+    lastVisitDate?: string;
     advertisements: Advertisement[];
     memberLanguage: any[];
     memberLocation: any[];
@@ -17,3 +19,11 @@ export interface Member {
     id: string;
   }
   
+export interface MemberFormValue {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  phoneNumber: string;
+  userName: string; 
+}
