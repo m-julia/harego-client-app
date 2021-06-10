@@ -13,6 +13,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { reduxForm, InjectedFormProps, DecoratedComponentClass  } from "redux-form";
 
 function Copyright() {
   return (
@@ -53,20 +55,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function RegistrationForm() {
-  const classes = useStyles();
-  
+const classes = useStyles();
+
+function LoginForm({ handleSubmit }: InjectedFormProps){
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Login
-        </Typography>
-        <form className={classes.form} noValidate>
+    <form className={classes.form} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -120,10 +113,33 @@ export default function RegistrationForm() {
             </Grid>
           </Grid>
         </form>
+  )
+}
+
+const LoginReduxForm= reduxForm({
+  form: 'login'
+})(LoginForm);
+
+
+
+function Login() {
+  return (
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Login
+        </Typography>
+        <LoginReduxForm /> 
       </div>
       <Box mt={5}>
         <Copyright />
       </Box>
     </Container>
   );
-}
+};
+
+export default Login;
