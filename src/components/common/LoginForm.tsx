@@ -55,9 +55,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const classes = useStyles();
 
 function LoginForm({ handleSubmit }: InjectedFormProps){
+  const classes = useStyles();
   return (
     <form className={classes.form} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
@@ -123,6 +123,7 @@ const LoginReduxForm= reduxForm({
 
 
 function Login() {
+  const classes = useStyles();
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
