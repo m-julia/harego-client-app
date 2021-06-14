@@ -1,8 +1,8 @@
-import React from 'react'
-import { Field, FieldsWarnerOrValidator, InjectedFormProps, reduxForm } from 'redux-form'
-import TextField from '@material-ui/core/TextField'
-import FormHelperText from '@material-ui/core/FormHelperText'
-import { Button, Checkbox, createMuiTheme, FormControlLabel, Grid, makeStyles, ThemeProvider } from '@material-ui/core'
+import React from 'react';
+import { Field,  InjectedFormProps, reduxForm } from 'redux-form';
+import TextField from '@material-ui/core/TextField';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import { Button, Checkbox, createMuiTheme, FormControlLabel, Grid, makeStyles, ThemeProvider } from '@material-ui/core';
 
 const theme = createMuiTheme({
     palette: {
@@ -45,14 +45,22 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: 'none',
     }
   }));
+
+  interface IValues<T> {
+    [key: string]: string
+  }
+
+  interface IErrors<T> {
+    [key: string]: string
+  }
   
-const validate = values => {
-  const errors = {}
+const validate = (values: IValues<string>) => {
+  const errors : IErrors<String> = {}
   const requiredFields = [
     'email',
     'password'
   ]
-  requiredFields.forEach(field => {
+  requiredFields.forEach((field: string) => {
     if (!values[field]) {
       errors[field] = 'Required'
     }
@@ -66,6 +74,19 @@ const validate = values => {
   return errors
 }
 
+interface IRenderTextFieldProps {
+  label: string,
+  variant?: "filled" | "standard" | "outlined" | undefined,
+  input: string,
+  autoComplete: string,
+  meta: {
+    touched: boolean,
+    invalid: boolean,
+    error: any
+  },
+  custom: any[]
+}
+
 const renderTextField = ({
   label,
   variant,
@@ -73,7 +94,7 @@ const renderTextField = ({
   autoComplete,
   meta: { touched, invalid, error },
   ...custom
-}) => (
+}: IRenderTextFieldProps) => (
   <TextField
     label={label}
     placeholder={label}
@@ -86,7 +107,16 @@ const renderTextField = ({
   />
 )
 
-const renderCheckbox = ({ input, label }) => (
+interface IRenderChekboxProps {
+  label: string,
+  input: {
+    value: boolean,
+    onChange: () => void,
+  },
+}
+
+
+const renderCheckbox = ({ input, label }: IRenderChekboxProps) => (
     <div>
       <FormControlLabel
         control={
@@ -99,7 +129,13 @@ const renderCheckbox = ({ input, label }) => (
       />
     </div>
   )
-const renderFromHelper = ({ touched, error }: InjectedFormProps) => {
+
+interface IRenderFormHelperProps {
+  touched: boolean,
+  error: InjectedFormProps
+}
+
+const renderFromHelper = ({ touched, error }: IRenderFormHelperProps) => {
     if (!(touched && error)) {
       return
     } else {
