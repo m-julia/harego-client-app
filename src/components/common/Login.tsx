@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Field,  InjectedFormProps, reduxForm } from 'redux-form';
 import TextField from '@material-ui/core/TextField';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { Button, Checkbox, createMuiTheme, FormControlLabel, Grid, makeStyles, ThemeProvider } from '@material-ui/core';
+import { ChangeEvent } from 'react';
+import { connect } from 'react-redux';
+import { FormEventHandler } from 'react';
 
 const theme = createMuiTheme({
     palette: {
@@ -53,6 +56,15 @@ const useStyles = makeStyles((theme) => ({
   interface IErrors<T> {
     [key: string]: string
   }
+
+  interface Props {
+    handleSubmit: FormEventHandler<HTMLFormElement>,
+    pristine: boolean | undefined,
+    reset(): void, 
+    submitting: boolean,
+    logingUser: Object,
+    login: (user: Object) => void
+  }
   
 const validate = (values: IValues<string>) => {
   const errors : IErrors<String> = {}
@@ -84,6 +96,7 @@ interface IRenderTextFieldProps {
     invalid: boolean,
     error: any
   },
+  onChange: (event: ChangeEvent<HTMLInputElement>) => string,
   custom: any[]
 }
 
@@ -93,6 +106,7 @@ const renderTextField = ({
   input,
   autoComplete,
   meta: { touched, invalid, error },
+  onChange,
   ...custom
 }: IRenderTextFieldProps) => (
   <TextField
@@ -102,6 +116,7 @@ const renderTextField = ({
     autoComplete={autoComplete}
     error={touched && invalid}
     helperText={touched && error}
+    onChange={onChange}
     {...input}
     {...custom}
   />
@@ -143,7 +158,10 @@ const renderFromHelper = ({ touched, error }: IRenderFormHelperProps) => {
     }
   }
 
-  const Login = (props: InjectedFormProps) => {
+  const Login = (props: Props) => {
+    const {logingUser, login} = props;
+    const [user, setUser] = useState({});
+
     const { handleSubmit, pristine, reset, submitting} = props
     const classes = useStyles();
     return (
@@ -157,6 +175,10 @@ const renderFromHelper = ({ touched, error }: IRenderFormHelperProps) => {
                     variant="standard"
                     fullWidth
                     autoComplete="email"
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                      const email = event.target.value;
+                      setUser({...user, ...{ email }})
+                    }}
                 />
             </Grid>
             <Grid container spacing={2}>
@@ -167,6 +189,10 @@ const renderFromHelper = ({ touched, error }: IRenderFormHelperProps) => {
                     variant="standard"
                     fullWidth
                     autoComplete="password"
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                      const password = event.target.value;
+                      setUser({...user, ...{ password }})
+                    }}
                 />
             </Grid>
 
@@ -203,7 +229,7 @@ const renderFromHelper = ({ touched, error }: IRenderFormHelperProps) => {
             />
             </div>
             <div>
-            <button type="submit" disabled={pristine || submitting}>
+            <button type="submit" disabled={pristine || submitting} >
                 Submit
             </button>
             <button type="button" disabled={pristine || submitting} onClick={reset}>
@@ -214,7 +240,23 @@ const renderFromHelper = ({ touched, error }: IRenderFormHelperProps) => {
         </ThemeProvider>
     )
   }
+
+  const mapStateToProps = (state: Object) => {
+    return {
+      logingUser: state,
+    };
+  };
+
+  const mapDispatchToProps = (dispatch: any) => {
+    return {
+      login: (user: Object) => {
+        //dispatch()
+      }
+    }
+  }
   
+  const DecoratedLogin = connect(mapStateToProps, mapDispatchToProps)(Login);
+
   export default reduxForm({
     form: 'Login', // a unique identifier for this form
-    validate})(Login)
+    validate})(DecoratedLogin);
