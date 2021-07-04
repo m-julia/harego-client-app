@@ -20,10 +20,10 @@ export interface Member {
   }
   
 export interface MemberFormValue {
-  firstName: string;
-  lastName: string;
+  firstName?: string;
+  lastName?: string;
   email: string;
   password: string;
-  phoneNumber: string;
-  userName: string; 
+  phoneNumber?: string;
+  userName?: string; 
 }

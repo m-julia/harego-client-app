@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import { Advertisement } from './models/advertisement';
 import { Member, MemberFormValue } from './models/member';
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'http://localhost:6600/api';
 
 const responseBody = <T> (response: AxiosResponse<T>) => response.data;
 

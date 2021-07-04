@@ -15,6 +15,7 @@ const authState = {
 };
 
 const authReducer = (state: any = authState, action: any) => {
+    
     return state;
 }
 

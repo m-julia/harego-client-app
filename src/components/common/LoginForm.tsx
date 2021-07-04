@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -13,8 +13,11 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { NavLink } from "react-router-dom";
-import { connect } from "react-redux";
-import { reduxForm, InjectedFormProps, DecoratedComponentClass  } from "redux-form";
+import { logingUser } from "../../redux/actions/authActions";
+import { MemberFormValue } from "../../api/models/member";
+import agent from "../../api/agent";
+
+
 
 function Copyright() {
   return (
@@ -55,11 +58,28 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const loginHandler = async (e : any, state : any) => {
+  e.preventDefault();
+  const member : MemberFormValue = {email: state['email'], password: state['password']};
+  const loggedMember = await agent.Account.login(member)
+  console.log(loggedMember);
+}
 
-function LoginForm({ handleSubmit }: InjectedFormProps){
+const changeHandler = (e: any, setState: any, type: any, state: Object) => {
+  
+  if (type === 'email') {
+    setState({...state, email: e.target.value})
+  } else {
+    setState({...state, password: e.target.value})
+  }
+}
+
+
+function LoginForm(){
+  const [state, setState] = useState({});
   const classes = useStyles();
   return (
-    <form className={classes.form} onSubmit={handleSubmit}>
+    <form className={classes.form} >
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -71,6 +91,7 @@ function LoginForm({ handleSubmit }: InjectedFormProps){
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={(e) => changeHandler(e, setState, 'email', state)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -83,6 +104,7 @@ function LoginForm({ handleSubmit }: InjectedFormProps){
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e) => changeHandler(e, setState, 'password', state)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -97,6 +119,7 @@ function LoginForm({ handleSubmit }: InjectedFormProps){
             fullWidth
             variant="contained"
             className={classes.submit}
+            onClick={(e) => loginHandler(e, state)}
           >
             Login
           </Button>
@@ -116,12 +139,6 @@ function LoginForm({ handleSubmit }: InjectedFormProps){
   )
 }
 
-const LoginReduxForm= reduxForm({
-  form: 'login'
-})(LoginForm);
-
-
-
 function Login() {
   const classes = useStyles();
   return (
@@ -134,7 +151,7 @@ function Login() {
         <Typography component="h1" variant="h5">
           Login
         </Typography>
-        <LoginReduxForm /> 
+        <LoginForm /> 
       </div>
       <Box mt={5}>
         <Copyright />
